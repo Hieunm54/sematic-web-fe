@@ -9,6 +9,7 @@ import ConcertTables from "./components/ConcertTables";
 function App() {
 	const [header, setHeader] = useState([]);
 	const [data, setData] = useState();
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -20,12 +21,15 @@ function App() {
 			);
 			setData(response.data.results.bindings);
 			setHeader(response.data.head.vars);
+			setLoading(false);
 		};
 
 		fetchData();
 	}, []);
+	console.log(data)
 
-	return (
+	if(loading) return <div>loading</div>;
+	else return (
 		<div className="App">
 			<div className="search-div">
 				<input className="search-input"></input>
@@ -37,7 +41,7 @@ function App() {
 				<ConcertTables headers={header} data={data} />
 			</div>
 
-			<ListSingers headers={header} data={data} />
+			<ListSingers />
 		</div>
 	);
 }

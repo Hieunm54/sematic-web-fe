@@ -5,6 +5,7 @@ import SingerTables from "./SingerTable";
 const ListSingers = () => {
 	const [data, setData] = useState();
 	const [header, setHeader] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -16,11 +17,13 @@ const ListSingers = () => {
 			);
 			setData(response.data.results.bindings);
 			setHeader(response.data.head.vars);
+			setLoading(false);
 		};
 		fetchData();
 	}, []);
 
-	return (
+	if(loading) return <div>loading</div>;
+	else return (
 		<div>
 			<h1>ListSingers</h1>
 			<div>{console.log("singers ", data)}</div>
