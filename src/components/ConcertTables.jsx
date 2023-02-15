@@ -71,7 +71,7 @@ export default function ConcertTables({ headers, data }) {
 	};
 
 	return (
-		<TableContainer component={Paper} style={{marginBottom: '50px'}}>
+		<TableContainer component={Paper} style={{marginTop: '50px'}}>
 			<h1>List Concerts</h1>
 			<Table className={classes.table} aria-label="customized table">
 				<TableHead>

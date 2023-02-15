@@ -44,10 +44,9 @@ function App() {
 	if(loading) return <div>Loading...</div>;
 	else return (
 		<div className="App">
-			<div>
-				<ConcertTables headers={header} data={data} />
-			</div>
+			
 			<div className="search-div">
+				<h1>List Singers</h1>
 				<input className="search-input" onChange={(e) => setSearchText(e.target.value)}></input>
 				<button onClick={onSubmit}>
 					<FcSearch />
@@ -55,6 +54,10 @@ function App() {
 			</div>
 
 			<ListSingers passedData={singerData} />
+
+			<div>
+				<ConcertTables headers={header} data={data} />
+			</div>
 		</div>
 	);
 }
