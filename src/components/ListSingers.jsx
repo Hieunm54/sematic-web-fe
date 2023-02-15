@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SingerTables from "./SingerTable";
 
-const ListSingers = () => {
+const ListSingers = ({passedData}) => {
 	const [data, setData] = useState();
 	const [header, setHeader] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -21,6 +21,10 @@ const ListSingers = () => {
 		};
 		fetchData();
 	}, []);
+
+	useEffect(() => {
+		setData(passedData);
+	}, [passedData])
 
 	if(loading) return <div>loading</div>;
 	else return (

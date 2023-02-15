@@ -52,17 +52,16 @@ export default function SingerTables({ headers, data }) {
 			return <StyledTableCell>{header}</StyledTableCell>;
 		});
 	};
-	console.log("singers ", data);
 	const getData = () => {
 		return data.map((d) => (
 			<StyledTableRow key={d.name}>
 				<StyledTableCell component="th" scope="row">
 					{d.singerName.value}
 				</StyledTableCell>
-				<StyledTableCell align="right">
+				<StyledTableCell align="left">
 					{d.songName.value}
 				</StyledTableCell>
-				<StyledTableCell align="right">
+				<StyledTableCell align="left">
 					{d.musicianName.value}
 				</StyledTableCell>
 			</StyledTableRow>
