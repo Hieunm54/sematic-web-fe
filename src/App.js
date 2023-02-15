@@ -2,9 +2,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {FcSearch} from 'react-icons/fc';
+import { FcSearch } from "react-icons/fc";
 import ListSingers from "./components/ListSingers";
-import CustomizedTables from "./components/TableData";
+import ConcertTables from "./components/ConcertTables";
 
 function App() {
 	const [header, setHeader] = useState([]);
@@ -27,17 +27,17 @@ function App() {
 
 	return (
 		<div className="App">
-			{console.log("data ", data, header)}
 			<div className="search-div">
-			<input className="search-input"></input>
-			<button><FcSearch /></button>
-		</div>
+				<input className="search-input"></input>
+				<button>
+					<FcSearch />
+				</button>
+			</div>
 			<div>
-				<CustomizedTables headers={header} data={data} />
+				<ConcertTables headers={header} data={data} />
 			</div>
 
-			<ListSingers />
-			
+			<ListSingers headers={header} data={data} />
 		</div>
 	);
 }

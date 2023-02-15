@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 	},
 });
 
-export default function CustomizedTables({ headers, data }) {
+export default function ConcertTables({ headers, data }) {
 	const classes = useStyles();
 
 	const getHeader = () => {
@@ -52,62 +52,31 @@ export default function CustomizedTables({ headers, data }) {
 			return <StyledTableCell>{header}</StyledTableCell>;
 		});
 	};
-
-	// const getData = () => {
-	// 	return data.map((d) => {
-	// 		return (
-	// 			<StyledTableCell component="th" scope="row">
-	// 				{d.concert.value}
-	// 			</StyledTableCell>
-	// 		);
-	// 	});
-	// };
+	console.log("dataa ", data[0].concert.value);
+	const getData = () => {
+		return data.map((d) => (
+			<StyledTableRow key={d.name}>
+				<StyledTableCell component="th" scope="row">
+					{d.concert.value}
+				</StyledTableCell>
+				<StyledTableCell align="right">{d.date.value}</StyledTableCell>
+				<StyledTableCell align="right">
+					{d.location.value}
+				</StyledTableCell>
+				<StyledTableCell align="right">
+					{d.singer.value}
+				</StyledTableCell>
+			</StyledTableRow>
+		));
+	};
 
 	return (
 		<TableContainer component={Paper}>
 			<Table className={classes.table} aria-label="customized table">
 				<TableHead>
-					<TableRow>
-						{getHeader()}
-						{/* <StyledTableCell>
-							Dessert (100g serving)
-						</StyledTableCell>
-						<StyledTableCell align="right">
-							Calories
-						</StyledTableCell>
-						<StyledTableCell align="right">
-							Fat&nbsp;(g)
-						</StyledTableCell>
-						<StyledTableCell align="right">
-							Carbs&nbsp;(g)
-						</StyledTableCell>
-						<StyledTableCell align="right">
-							Protein&nbsp;(g)
-						</StyledTableCell> */}
-					</TableRow>
+					<TableRow>{getHeader()}</TableRow>
 				</TableHead>
-				<TableBody>
-					{/* {getData()} */}
-					{/* {rows.map((row) => (
-						<StyledTableRow key={row.name}>
-							<StyledTableCell component="th" scope="row">
-								{row.name}
-							</StyledTableCell>
-							<StyledTableCell align="right">
-								{row.calories}
-							</StyledTableCell>
-							<StyledTableCell align="right">
-								{row.fat}
-							</StyledTableCell>
-							<StyledTableCell align="right">
-								{row.carbs}
-							</StyledTableCell>
-							<StyledTableCell align="right">
-								{row.protein}
-							</StyledTableCell>
-						</StyledTableRow>
-					))} */}
-				</TableBody>
+				<TableBody>{getData()}</TableBody>
 			</Table>
 		</TableContainer>
 	);
