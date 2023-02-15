@@ -3,9 +3,11 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {FcSearch} from 'react-icons/fc';
+import ListSingers from "./components/ListSingers";
+import CustomizedTables from "./components/TableData";
 
 function App() {
-  const [header, setHeader] = useState([]);
+	const [header, setHeader] = useState([]);
 	const [data, setData] = useState();
 
 	useEffect(() => {
@@ -22,13 +24,22 @@ function App() {
 
 		fetchData();
 	}, []);
-	console.log("data ", data, header)
-	return <div className="App">
-		<div className="search-div">
+
+	return (
+		<div className="App">
+			{console.log("data ", data, header)}
+			<div className="search-div">
 			<input className="search-input"></input>
 			<button><FcSearch /></button>
 		</div>
-	</div>;
+			<div>
+				<CustomizedTables headers={header} data={data} />
+			</div>
+
+			<ListSingers />
+			
+		</div>
+	);
 }
 
 export default App;
