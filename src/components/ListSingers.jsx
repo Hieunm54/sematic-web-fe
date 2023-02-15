@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CustomizedTables from "./TableData";
+import SingerTables from "./SingerTable";
 
 const ListSingers = () => {
 	const [data, setData] = useState();
@@ -25,7 +25,7 @@ const ListSingers = () => {
 			<h1>ListSingers</h1>
 			<div>{console.log("singers ", data)}</div>
 			<div>
-				<CustomizedTables headers={header} data={data} />
+				<SingerTables headers={header} data={data} />
 			</div>
 		</div>
 	);
