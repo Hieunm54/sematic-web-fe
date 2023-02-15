@@ -29,7 +29,7 @@ const ListSingers = ({passedData}) => {
 	if(loading) return <div>loading</div>;
 	else return (
 		<div>
-			<h1>ListSingers</h1>
+			<h1>List Singers</h1>
 			<div>{console.log("singers ", data)}</div>
 			<div>
 				<SingerTables headers={header} data={data} />

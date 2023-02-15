@@ -59,11 +59,11 @@ export default function ConcertTables({ headers, data }) {
 				<StyledTableCell component="th" scope="row">
 					{d.concert.value}
 				</StyledTableCell>
-				<StyledTableCell align="right">{d.date.value}</StyledTableCell>
-				<StyledTableCell align="right">
+				<StyledTableCell align="left">{d.date.value}</StyledTableCell>
+				<StyledTableCell align="left">
 					{d.location.value}
 				</StyledTableCell>
-				<StyledTableCell align="right">
+				<StyledTableCell align="left">
 					{d.singer.value}
 				</StyledTableCell>
 			</StyledTableRow>
@@ -71,7 +71,8 @@ export default function ConcertTables({ headers, data }) {
 	};
 
 	return (
-		<TableContainer component={Paper}>
+		<TableContainer component={Paper} style={{marginBottom: '50px'}}>
+			<h1>List Concerts</h1>
 			<Table className={classes.table} aria-label="customized table">
 				<TableHead>
 					<TableRow>{getHeader()}</TableRow>
