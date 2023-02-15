@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {FcSearch} from 'react-icons/fc';
 
 function App() {
   const [header, setHeader] = useState([]);
@@ -21,8 +22,13 @@ function App() {
 
 		fetchData();
 	}, []);
-
-	return <div className="App">{console.log("data ", data, header)}</div>;
+	console.log("data ", data, header)
+	return <div className="App">
+		<div className="search-div">
+			<input className="search-input"></input>
+			<button><FcSearch /></button>
+		</div>
+	</div>;
 }
 
 export default App;
